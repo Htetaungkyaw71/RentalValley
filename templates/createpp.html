@@ -1,0 +1,39 @@
+{% include 'header.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+<div class="container" style="padding-top:150px">
+   <div class="row">
+       <div class="col-lg-4 text-center">
+<div class="card text-center" style="border:none;">
+  <div class="card-body">
+
+          <img src="{{ current_user.email | gravatar }}" alt="profile" style="border-radius:50%;width:120px;height:120px">
+    <div class="mt-3">
+              {% if current_user.id == 1 %}
+         <span style="color:black">Admin.</span>
+        {% else %}
+        <span style="color:black">Renter.</span>
+        {% endif %}
+        <span style="color:black">{{pp.employment}}</span>
+    </div>
+
+
+  </div>
+</div>
+           <div class="text-center mt-3 mb-5">
+               <a href="{{ url_for('profile') }}" style="border:1px solid #F48840;padding:10px;" class="aa"> View profile </a>
+           </div>
+
+
+       </div>
+       <div class="col-lg-8">
+            <h1 style="font-weight:bold">Basic Information</h1>
+                    {{ wtf.quick_form(form,novalidate=True,button_map={"submit": "primary"}) }}
+           <hr>
+       </div>
+   </div>
+</div>
+
+
+{% include 'footer.html' %}

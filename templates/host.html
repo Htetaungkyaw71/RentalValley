@@ -1,0 +1,153 @@
+{% include 'header.html' %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+<div class="container" style="padding-top:150px">
+        <ul class=flashes >
+    {% for message in messages %}
+      <li style="color:#F48840;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+</div>
+
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+
+    <div class="head" style="padding-top:150px">
+
+
+      <div class="container">
+        <div class="row">
+             <div class="col-md-6 ">
+                  <div class="text">
+              <div>
+                  For Host
+              </div>
+      <h1 style="font-size:50px;">Find Renters for 1-12 months</h1>
+            <p>
+              Join 10,000 hosts who earn more rental income and increase their occupancy rate for their monthly rentals and rooms for rent.
+            </p>
+
+
+
+
+          </div>
+
+          </div>
+          <div class="col-md-6  "  >
+               <div class="myimage">
+                 <img src="../static/assets/images/hostmain.png" alt="" class="img-fluid">
+              </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+<div class="second">
+  <div class="container">
+  <h1>How it works</h1>
+  <p>You can do everything in Kopa — from adding your properties to getting paid by your new renters.</p>
+  <div class="row">
+     <div class="col-md-4">
+         <h4>List your space for free</h4>
+      <p>Add a listing in 9 minutes or less. You control the monthly availability, pricing, and house rules.</p>
+     </div>
+     <div class="col-md-4">
+         <h4>Receive requests</h4>
+      <p>Browse apartments with a range of amenities and furnishings to fit your budget and needs.</p>
+     </div>
+     <div class="col-md-4">
+
+         <h4>Accept requests.</h4>
+      <p>Easily book listings, email with hosts, sign leases, and pay deposits and monthly rent.</p>
+     </div>
+  </div>
+  </div>
+
+</div>
+
+
+<div class="second">
+  <div class="container">
+
+  <div class="row">
+     <div class="col-md-4">
+       <p>
+         <button type="button" class="btn btn-primary"  style="background:#F48840;border:none; " data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Listing
+</button>
+       </p>
+     </div>
+     <div class="col-md-4">
+            <p>
+                <a href="{{url_for('hostrequest')}}" class="btn btn-primary" style="background:#F48840;border:none;" type="button">
+                    Rental requests
+                </a>
+
+       </p>
+     </div>
+     <div class="col-md-4">
+
+
+     </div>
+  </div>
+  </div>
+
+</div>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Listing</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-3">
+          <h5>
+              Email to our team your house detail.
+          </h5>
+
+          <ul style="list-style-type:decimal;" class="p-3">
+              <li>Profile Link eg-your rental profile link</li>
+              <li>Title</li>
+              <li>Description eg-1 bed 1 bedroom 1 bathroom</li>
+              <li>Price eg-Price for 1 month/ks</li>
+              <li>Googel map eg-google map src link</li>
+              <li>photos eg-exterior,livingroom,bedroom,bathroom,kitchen,backyard</li>
+              <li>About eg-about your house</li>
+              <li>House rules</li>
+              <li>City name</li>
+          </ul>
+
+          <p>
+              we will check as soon as possible and uploaded our website
+          </p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a type="button" class="btn btn-primary" href="mailto:htetaung200071@gmail.com" style="background:#F48840;border:none;">Send email to our team</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% include 'footer.html' %}

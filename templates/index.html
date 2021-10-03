@@ -1,0 +1,168 @@
+{% include 'header.html' %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+<div class="container" style="padding-top:150px">
+        <ul class=flashes >
+    {% for message in messages %}
+      <li style="color:#F48840;">{{ message }}</li>
+    {% endfor %}
+    </ul>
+</div>
+
+  {% endif %}
+{% endwith %}
+{% block body %}{% endblock %}
+
+    <div class="head">
+
+
+      <div class="container">
+        <div class="row">
+             <div class="col-md-6 ">
+              <div class="myimage">
+                 <img src="../static/assets/images/home.png" alt="" class="img-fluid">
+              </div>
+
+          </div>
+          <div class="col-md-6  "  >
+          <div class="text">
+      <h1>Find monthly rentals</h1>
+            <p>
+              Find home rentals, apartments, and rooms for rent for 1–12+ month stays in over 100 cities and towns across Myanmar.
+            </p>
+
+              <form action="{{ url_for('search') }}" method="GET">
+              <label style="font-weight:bold">Title or Price or Description</label>
+               <br>
+              <input type="text" placeholder="Search" name="q">
+
+              <input type="submit" class="b" >
+            </form>
+
+
+          </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+<div class="second">
+  <div class="container">
+  <h1>Move-in ready spaces</h1>
+  <p>Hosts have added over 20,000 spaces across the Myanmar.
+Browse, book, and pay for your next rental on Rentals Valley.</p>
+  <div class="row">
+    <div class="col-md-3">
+
+      <h4>Prices for your budget</h4>
+      <p>Find unfurnished rooms for rent to luxury apartments in big cities and small towns across the Myanmar.</p>
+    </div>
+     <div class="col-md-3">
+         <h4>Flexible stays</h4>
+      <p>No more year-long leases. Find a space for any length of stay between 1-12+ months.</p>
+     </div>
+     <div class="col-md-3">
+         <h4>All the essentials
+</h4>
+      <p>Browse apartments with a range of amenities and furnishings to fit your budget and needs.</p>
+     </div>
+     <div class="col-md-3">
+
+         <h4>Everything is online</h4>
+      <p>Easily book listings, chat with hosts, sign leases, and pay deposits and monthly rent.</p>
+     </div>
+  </div>
+  </div>
+
+</div>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+
+      <div class="container">
+          <hr class="mt-5">
+    <div class="main-banner header-text ">
+
+
+
+        <div class="row third">
+          <div class="col-lg-6">
+              <h1>Find rentals in 100+ Myanmar cities</h1>
+  <p>Through Rentals valley, thousands of renters find a rental for their next job, exploring a new city, relocating, renovating, going on a business trip, or visiting family and friends.</p>
+            <a href="{{ url_for('rentals') }}" style="color:#F48840;">Browse rentals</a>
+          </div>
+          <div class="col-lg-6"></div>
+
+        </div>
+
+      </div>
+    </div>
+
+<div class="container mt-5 ">
+
+        <div class="row mt-3 ">
+              {% for cat in categories %}
+            <div class=" col-xl-2 col-lg-4 col-md-4 col-sm-5 text-center">
+<a href="{{ url_for('cat',id=cat.id) }}" style="color:black">
+                 <img src="../static/assets/images/upload/{{cat.image}}"  style="width:180px;height:230px" class="imagedesign">
+                <div class="mt-3 mb-3">
+                       {{cat.name}}
+                </div>
+</a>
+
+
+            </div>
+            {% endfor %}
+
+        </div>
+</div>
+
+<div class="container mt-5">
+    <hr>
+</div>
+
+    <!-- Banner Ends Here -->
+
+        <section class="blog-posts grid-system">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="all-blog-posts">
+              <div class="row">
+                {% for post in posts  %}
+                <div class="col-lg-4">
+                  <div class="blog-post">
+                    <div class="blog-thumb">
+                      <img src="../static/assets/images/upload/{{post.exterior}}" alt="" >
+                    </div>
+                    <div class="down-content">
+                      <span>{{post.description}}</span>
+                      <a href="{{url_for('detail',id=post.id)}}"><h4>{{post.title}}</h4></a>
+                      <ul class="post-info">
+                        <li style="font-size:14px;font-weight:bold">{{post.price}}ks/month.</li>
+                        <li  style="font-size:14px;font-weight:bold">{{post.category.name}}</li>
+
+                      </ul>
+
+
+                    </div>
+                  </div>
+                </div>
+
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+{% include 'footer.html' %}

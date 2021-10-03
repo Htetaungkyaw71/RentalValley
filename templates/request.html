@@ -1,0 +1,74 @@
+{% include 'header.html' %}
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+
+    <section class="blog-posts grid-system" style="padding-top:150px;margin:0px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="all-blog-posts">
+              <div class="row">
+                <div class="col-lg-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true" style="background:transparent;color:black;">Review detail </button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false" style="background:transparent;color:black;">Booking </button>
+                      </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                   <h1 class="mt-5">About the space</h1>
+                          <p class="mt-4" style="font-weight:bold">
+                                            {{post.about}}
+                                          </p>
+                                         <hr>
+                              <h1 class="mt-3">House rules</h1>
+                              <p class="mt-4" style="font-weight:bold">
+                                            {{post.rule}}
+                                          </p>
+
+
+                      </div>
+
+                      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+
+                          <h5 class="card-title mt-5">{{post.price}}ks/per month</h5>
+                              <h6 class="card-subtitle mb-5 text-muted">  Some utilities included</h6>
+
+                      {{ wtf.quick_form(form,novalidate=True,button_map={"submit": "primary"}) }}
+
+
+
+                      </div>
+                </div>
+
+
+
+
+
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+{% include 'footer.html' %}

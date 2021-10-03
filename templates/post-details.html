@@ -1,0 +1,194 @@
+{% include 'header.html' %}
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+      <section class="page-heading">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-content text-center ">
+              <h2 style="font-weight:bold;color:black;">{{post.title}}</h2>
+                <h6 class="mt-3">{{post.description}}  {{post.category.name}}, Myanmar </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Banner Ends Here -->
+
+
+
+
+    <section class="blog-posts grid-system">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="all-blog-posts">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="blog-post">
+                    <div class="blog-thumb">
+
+                      <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../static/assets/images/upload/{{post.exterior}}" class="d-block w-100 img-fluid" alt="..." style="height:400px">
+       <div class="carousel-caption d-none d-md-block">
+           <div class="row">
+               <div class="col-lg-4"></div>
+                <div class="col-lg-4 ">
+                    <h5 style="background:white;color:black">Exterior</h5>
+                </div>
+                <div class="col-lg-4"></div>
+           </div>
+
+       </div>
+    </div>
+       <div class="carousel-item ">
+      <img src="../static/assets/images/upload/{{post.living_room}}" class="d-block w-100 img-fluid" alt="..." style="height:400px">
+       <div class="carousel-caption d-none d-md-block">
+             <div class="row">
+               <div class="col-lg-4"></div>
+                <div class="col-lg-4 ">
+                    <h5 style="background:white;color:black">Living room</h5>
+                </div>
+                <div class="col-lg-4"></div>
+           </div>
+       </div>
+    </div>
+          <div class="carousel-item ">
+      <img src="../static/assets/images/upload/{{post.bedroom}}" class="d-block w-100 img-fluid" alt="..." style="height:400px">
+       <div class="carousel-caption d-none d-md-block">
+             <div class="row">
+               <div class="col-lg-4"></div>
+                <div class="col-lg-4 ">
+                    <h5 style="background:white;color:black">Bedroom</h5>
+                </div>
+                <div class="col-lg-4"></div>
+           </div>
+       </div>
+    </div>
+          <div class="carousel-item ">
+      <img src="../static/assets/images/upload/{{post.bathroom}}" class="d-block w-100 img-fluid" alt="..." style="height:400px">
+       <div class="carousel-caption d-none d-md-block">
+            <div class="row">
+               <div class="col-lg-4"></div>
+                <div class="col-lg-4 ">
+                    <h5 style="background:white;color:black">Bathroom</h5>
+                </div>
+                <div class="col-lg-4"></div>
+           </div>
+       </div>
+    </div>
+          <div class="carousel-item ">
+      <img src="../static/assets/images/upload/{{post.kitchen}}" class="d-block w-100 img-fluid" alt="..." style="height:400px">
+       <div class="carousel-caption d-none d-md-block">
+             <div class="row">
+               <div class="col-lg-4"></div>
+                <div class="col-lg-4 ">
+                    <h5 style="background:white;color:black">Kitchen</h5>
+                </div>
+                <div class="col-lg-4"></div>
+           </div>
+       </div>
+    </div>
+          <div class="carousel-item ">
+      <img src="../static/assets/images/upload/{{post.backyard}}" class="d-block w-100 img-fluid" alt="..." style="height:400px">
+       <div class="carousel-caption d-none d-md-block">
+            <div class="row">
+               <div class="col-lg-4"></div>
+                <div class="col-lg-4 ">
+                    <h5 style="background:white;color:black">Backyard</h5>
+                </div>
+                <div class="col-lg-4"></div>
+           </div>
+       </div>
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+                    </div>
+
+                     <h1 class="mt-5">About the space</h1>
+                      <p class="mt-4" style="font-weight:bold">
+                        {{post.about}}
+                      </p>
+                     <hr>
+
+
+
+
+
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+            <div class="col-lg-4">
+
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card" style="width: 20rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{post.price}}ks/per month</h5>
+          <h6 class="card-subtitle mb-2 text-muted">  Some utilities included</h6>
+              <hr>
+
+               <a class="gbtn" href="{{ url_for('book',id=post.id) }}" type="button" style="color:white;">Request to send</a>
+                {% if current_user.id == 1 %}
+                <a class="gbtn" href="{{ url_for('edit',id=post.id) }}" type="button" style="color:white;">Edit Post</a>
+                <a class="gbtn" href="{{ url_for('delete',id=post.id) }}" type="button" style="color:white;">Delete Post</a>
+            {% endif %}
+
+
+
+
+
+
+  </div>
+</div>
+
+                </div>
+
+              </div>
+
+          </div>
+           <div class="col-lg-12 ">
+
+                <h1 class="mb-3 mt-5">Your Commute</h1>
+                    <div class="container p-5">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15268.012038895758!2d96.18452180000001!3d16.92514375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2smm!4v1631770750814!5m2!1sen!2smm" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    </div>
+           <hr>
+          <h1 class="mt-3">House rules</h1>
+          <p class="mt-4" style="font-weight:bold">
+                        {{post.rule}}
+                      </p>
+
+
+        </div>
+      </div>
+    </section>
+
+
+
+    
+{% include 'footer.html' %}
