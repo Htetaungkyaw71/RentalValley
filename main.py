@@ -16,10 +16,10 @@ UPLOAD_FOLDER = '/portfolio projects/Rental/static/assets/images/upload/'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-app.config['SECRET_KEY'] = 'adadaodkdiqqkdoqoqdoq11215'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL',"sqlite:///data.db")
+app.config['UPLOAD_FOLDER'] = os.environ.get('UPLOAD_FOLDER')
+app.config['MAX_CONTENT_LENGTH'] = os.environ.get('MAX_CONTENT_LENGTH')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
